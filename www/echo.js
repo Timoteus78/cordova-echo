@@ -6,29 +6,18 @@ Trial Cordova Plugin
 var exec = require('cordova/exec'),
     cordova = require('cordova');
 
-function Echo() {
-    this.prefix = 'Hi I got this message from you: ';
-}
+module.exports = {
 
-/**
- * Get feedback from native
- *
- * @param {Function} successCallback The function to call when the native platform responds.
- * @param {Function} errorCallback The function to call when there is an error getting a response from the native platform. (OPTIONAL)
- */
-Echo.prototype.echo = function(successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "Echo", "echo", [str]);
+     /**
+     * Open a native alert dialog, with a customizable title and button text.
+     *
+     * @param {String} message              Message to print in the body of the alert
+     * @param {Function} completeCallback   The callback that is called when user clicks on a button.
+     * @param {String} title                Title of the alert dialog (default: Alert)
+     * @param {String} buttonLabel          Label of the close button (default: OK)
+     */
+    echo: function(message, succesCallback, errorCallback) {
+    	exec(successCallback, errorCallback, "Echo", "echo", [message]);
+    }
+
 };
-
-
-var myEcho = new Echo();
-
-myEcho.echo ( function ( feedback ) {
-		var response = prefix + feedback;
-		return response;
-	},
-	function ( e ) {
-		alert ( 'Something went wrong: ' + e );
-	});
-
-module.exports = myEcho;
