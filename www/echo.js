@@ -30,3 +30,5 @@ myEcho.echo ( function ( feedback ) {
 	function ( e ) {
 		alert ( 'Something went wrong: ' + e );
 	});
+
+module.exports = myEcho;
