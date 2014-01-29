@@ -16,7 +16,7 @@ module.exports = {
      * @param {String} title                Title of the alert dialog (default: Alert)
      * @param {String} buttonLabel          Label of the close button (default: OK)
      */
-    echo: function(message, succesCallback, errorCallback) {
+    echo: function(message, successCallback, errorCallback) {
     	exec(successCallback, errorCallback, "Echo", "echo", [message]);
     }
 
